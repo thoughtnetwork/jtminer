@@ -1,8 +1,7 @@
 # jtminer
 Java block miner for Thought Network
 
-This is an experimental Cuckoo Cycle-based solo miner for the Thought Network.
-This is a work in progress, not production-ready code, and is being provided as-is for those who wish to participate in the testing of the Thought Network blockchain prior to the release of the cuckoo cycle POW on the main chain and the subsequent beginning of public mining on the blockchain.
+This is a Cuckoo Cycle-based solo miner for the Thought Network.
 
 ### Building ###
 Building jtminer requires Java 8 (or higher) Development Kit and Maven.
@@ -23,9 +22,9 @@ Once thought4j is installed, clone and build jtminer.
 The build will produce a shaded jar file in the target directory of the repository.  
 
 ### Running ###
-Mining with jtminer requires a running Thought wallet or Thought daemon on testnet with the RPC server enabled.  Binary distributions of a testnet-only daemon and wallet can be found at https://github.com/thoughtnetwork/thought-wallet.
+Mining with jtminer requires a running Thought wallet or Thought daemon with the RPC server enabled.  Binary distributions of a daemon and wallet can be found at https://github.com/thoughtnetwork/thought-wallet.
 
-Install the testnet distribution, then run the testnet wallet.  This will sync the wallet with the Thought testnet, and generate the local configuration directory.  Close the wallet and edit the Thought configuration file to enable the RPC server.  The Thought configuration file can be found on Linux and Mac in /home/username/.thought/thought.conf, and on Windows at C:/Users/username/AppData/Roaming/Thought/thought.conf.  Create the thought.conf file in the appropriate location if one does not exist.
+Install the distribution, then run the wallet.  This will sync the wallet with the Thought blockchain, and generate the local configuration directory.  Close the wallet and edit the Thought configuration file to enable the RPC server.  The Thought configuration file can be found on Linux and Mac in /home/username/.thoughtcore/thought.conf, and on Windows at C:/Users/username/AppData/Roaming/ThoughtCore/thought.conf.  Create the thought.conf file in the appropriate location if one does not exist.
 
 Add the following lines to the configuration file:  
 `server=1`  
@@ -37,7 +36,7 @@ Run the wallet again, and the RPC service will be enabled.
 Using the wallet interface, generate a receiving address (File menu, Receiving Addresses).  
 
 Execute jtminer from a command prompt in the jtminer directory:  
-`java -jar target/jtminer-0.0.1-SNAPSHOT-jar-with-dependencies.jar --help`    
+`java -jar target/jtminer-0.4-SNAPSHOT-jar-with-dependencies.jar --help`    
 This will display the usage message for jtminer.    
 ```
 usage: Miner
@@ -53,12 +52,15 @@ usage: Miner
 ```
 
 To start mining on testnet, issue the following command:  
-`java -jar target/jtminer-0.1-SNAPSHOT-jar-with-dependencies.jar --host localhost --port 11617 --user someusername --password somepassword --coinbase-addr the-address-created-in-wallet`  
+`java -jar target/jtminer-0.4-SNAPSHOT-jar-with-dependencies.jar --host localhost --port 11617 --user someusername --password somepassword --coinbase-addr the-address-created-in-wallet`  
+
+To start mining on mainnet, issue the following command:  
+`java -jar target/jtminer-0.4-SNAPSHOT-jar-with-dependencies.jar --host localhost --port 10617 --user someusername --password somepassword --coinbase-addr the-address-created-in-wallet`  
 
 Replace the values for user and password with the ones you created in the thought.conf for rpcuser and rpcpassword, and the coinbase address with the receiving address you created in the wallet.
 
 Optionally, arguments can be specified in a Java-style properties file (see jtminer.config.example), and the miner can be started with the following command:
-`java -jar target/jtminer-0.1-SNAPSHOT-jar-with-dependencies.jar --config jtminer.properties`
+`java -jar target/jtminer-0.4-SNAPSHOT-jar-with-dependencies.jar --config jtminer.properties`
 
 This option may be more secure than specifying a password on the command line.  Note that command line options and a configuration file can be mixed.  In this case, the command line options will override values specified in the config file.
 
