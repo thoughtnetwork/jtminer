@@ -56,7 +56,7 @@ import live.thought.thought4j.ThoughtRPCClient;
 public class Miner implements Observer
 {
   /** RELEASE VERSION */
-  public static final String               VERSION             = "v0.4";
+  public static final String               VERSION             = "v0.5";
   /** Options for the command line parser. */
   protected static final Options           options             = new Options();
   /** The Commons CLI command line parser. */

@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>live.thought</groupId>
 	<artifactId>jtminer</artifactId>
-	<version>0.4-SNAPSHOT</version>
+	<version>0.5</version>
 	<name>Java Thought Miner</name>
 	<description>Mining software for the Thought Network</description>
 	<dependencies>
@@ -26,8 +26,8 @@
 		</dependency>
 		<dependency>
 			<groupId>org.bouncycastle</groupId>
-			<artifactId>bcprov-jdk15on</artifactId>
-			<version>1.67</version>
+			<artifactId>bcprov-jdk18on</artifactId>
+			<version>1.83</version>
 		</dependency>
 		<dependency>
 			<groupId>junit</groupId>
